@@ -17,6 +17,7 @@ void setup(){
 Game_Menu menu = new Game_Menu();
 Level newLevel = new Level();
 Player P1;
+Projectile[] proj;
 
 
 //------------------ Global Variables ------------------
@@ -24,7 +25,6 @@ PFont font;
 int midX;
 int midY;
 int game_status;
-color button_color, button_hover_color, level_color;
 boolean mouse_hover = false;
 int status = 0;
 boolean inMenu = true;
@@ -37,14 +37,26 @@ void draw(){
   }
   
   else if(status == 1){
+    // Initialize a level
     if(inMenu){
       newLevel.set_level();
       P1 = new Player();
-      P1.init_player();
+      P1.init();
       inMenu = false;
     }
     
+    // Update player position
     P1.draw_player();
+    
+    // Manage projectile behaviour
+    for(int i = 0; i<proj.length; i++){
+      hit_detect(i);
+      enemy1(i);
+    }
+    tick_counter();
+    
+    
+    
   }
 }
 

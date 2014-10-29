@@ -19,13 +19,13 @@ class Button{
     
     /* Check for mouse hover */
     if(mouseX>bX && mouseX<bX+button_width && mouseY>bY && mouseY<bY+button_height){
-      fill(button_hover_color);
+      fill(menu.button_hover_color);
       if(mousePressed){
         status = 1;
       }
     }
     else{
-      fill(button_color);
+      fill(menu.button_color);
     }
     
     /* Draw main button */
@@ -37,7 +37,7 @@ class Button{
   
 //---------------------------------- Set button colors -------------------------------
   void set_button_color(color c1, color c2){
-    button_color = c1;
-    button_hover_color = c2;
+    menu.button_color = c1;
+    menu.button_hover_color = c2;
   }
 }

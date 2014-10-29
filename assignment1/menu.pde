@@ -1,12 +1,12 @@
 public class Game_Menu{
   
-  color button_color = color(255,179,0,255);
-  color button_hover_color = color(255,124,0,255);
-  color background_color = color(0,150,136,255);
-  
   Button B1 = new Button();
   Button B2 = new Button();
   Button B3 = new Button();
+  
+  color button_color = color(255,179,0,255);
+  color button_hover_color = color(255,124,0,255);
+  color background_color = color(0,150,136,255);
   
   void init_menu(){
     B1.set_button_color(button_color, button_hover_color);

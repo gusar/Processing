@@ -7,9 +7,18 @@ class Level{
   color blue = color(129,212,250);
   color purple = color(179,157,219);
   color[] color_array = {lime,green,yellow,orange,blue,purple};
+  color level_color;
 
   void set_level(){
     level_color = color_array[(int)random(0,5)];
     background(level_color);
+    proj = new Projectile[100];
+    init_enemies();
+  }     
+   
+//  void init_enemies(){
+//    for(int i=0;i<proj.length;i++){
+//      proj[i] = new Projectile();
+    }
   }
 }

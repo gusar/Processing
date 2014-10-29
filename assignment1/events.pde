@@ -2,12 +2,19 @@
 
 void keyPressed(){
   if(status == 1){
+    
+    // Player movement
     if(keyCode == LEFT){
-      P1.player_speed = -3f;  
+      P1.speed = -3f;  
     }
     
     if(keyCode == RIGHT){
-      P1.player_speed = 3f;    
+      P1.speed = 3f;    
+    }
+    
+    // Quit game
+    if(key == 'q'){
+      exit();
     }
   }
 }
@@ -17,7 +24,7 @@ void keyPressed(){
 void keyReleased(){
   if(status == 1){
     if(keyCode == LEFT || keyCode == RIGHT){
-      P1.player_speed = 0f;
+      P1.speed = 0f;
     }
   }
 }

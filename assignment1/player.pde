@@ -1,27 +1,31 @@
 class Player{
 
-    float player_speed = 0f;
-    float playerX;
-    float playerY;
-    int player_side = 50;
+    float speed = 0f;
+    float X1;
+    float Y1;
+    float X2;
+    float Y2;
+    int side = 50;
+    
   
-    void init_player(){
-      playerX = midX;
-      playerY = height-player_side;
-      println(width);
+    void init(){
+      X1 = midX;
+      Y1 = height - side;
+      X2 = X1 + side;
+      Y2 = Y1 + side;
     }
     
     void draw_player(){
-      background(level_color);
+      background(newLevel.level_color);
       fill(0);
       
       // Restrict player position
-      if((player_speed<0 && playerX<=0) || (player_speed>0 && playerX>=(width-player_side))){
-          println("ping");
-          player_speed = 0;
+      if((speed<0 && X1<=0) || (speed>0 && X1>=(width-side))){
+          speed = 0;
         }
         
       // Update player position
-      rect(playerX+=player_speed, playerY, player_side, player_side);
+      rect(X1+=speed, Y1, side, side);
+      X2 += speed;
     }
 }
