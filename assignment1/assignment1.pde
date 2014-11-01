@@ -13,13 +13,6 @@ void setup(){
 }
 
 
-//-------------------- Load Objects --------------------
-Game_Menu menu = new Game_Menu();
-Level newLevel = new Level();
-Player P1;
-Projectile[] proj;
-
-
 //------------------ Global Variables ------------------
 PFont font;
 int midX;
@@ -28,6 +21,16 @@ int game_status;
 boolean mouse_hover = false;
 int status = 0;
 boolean inMenu = true;
+
+
+
+//-------------------- Load Objects --------------------
+Game_Menu menu = new Game_Menu();
+Level newLevel = new Level();
+Player P1;
+Projectile[] proj;
+Queue queue = new Queue();
+
 
 
 //----------------------- Draw -------------------------
@@ -43,13 +46,18 @@ void draw(){
       P1 = new Player();
       P1.init();
       inMenu = false;
+      queue.init_enemies();
     }
     
     // Update player position
     P1.draw_player();
     
+    if(tick){
+      queue.add();
+    }
     // Manage projectile behaviour
     for(int i = 0; i<proj.length; i++){
+      
       hit_detect(i);
       enemy1(i);
     }

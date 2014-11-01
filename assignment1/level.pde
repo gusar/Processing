@@ -13,12 +13,5 @@ class Level{
     level_color = color_array[(int)random(0,5)];
     background(level_color);
     proj = new Projectile[100];
-    init_enemies();
   }     
-   
-//  void init_enemies(){
-//    for(int i=0;i<proj.length;i++){
-//      proj[i] = new Projectile();
-    }
-  }
 }
