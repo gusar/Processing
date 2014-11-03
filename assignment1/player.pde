@@ -8,14 +8,14 @@ class Player{
     int side = 50;
     
   
-    void init(){
+    Player(){
       X1 = midX;
       Y1 = height - side;
       X2 = X1 + side;
       Y2 = Y1 + side;
     }
     
-    void draw_player(){
+    void draw(){
       background(newLevel.level_color);
       fill(0);
       

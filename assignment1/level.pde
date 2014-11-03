@@ -9,9 +9,9 @@ class Level{
   color[] color_array = {lime,green,yellow,orange,blue,purple};
   color level_color;
 
-  void set_level(){
+  Level(){
     level_color = color_array[(int)random(0,5)];
-    background(level_color);
+    background(level_color);s
     proj = new Projectile[100];
   }     
 }
