@@ -1,9 +1,11 @@
 void hit_detect(int n){ 
-  if((proj[n].X1 >= P1.X1 && proj[n].X1 <= P1.X2) || (proj[n].X2 >= P1.X1 && proj[n].X2 <= P1.X2)){
+  if((queue.array[n].X1 >= P1.X1 && queue.array[n].X1 <= P1.X2) 
+  	|| (queue.array[n].X2 >= P1.X1 && queue.array[n].X2 <= P1.X2)) {
+    
     println("boom");
-    if(proj[n].Y2 >= P1.Y1){
+    if(queue.array[n].Y2 >= P1.Y1){
       println("ping");
-      proj[n].active = false;
+      queue.remove(n);
     }
   }
 }

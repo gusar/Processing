@@ -1,13 +1,13 @@
 class Square extends Object {
 
 	Square() {
-		super(50, random(0,width-side));
+		super(50, random(0,width-50));
 		speed = random(1,3);
-		active = true;
+		active = false;
 	}
 
 	Square(float s, boolean a) {
-		super(50, random(0,width-side));
+		super(50, random(0,width-50));
 		speed = s;
 		active = a;
 	}

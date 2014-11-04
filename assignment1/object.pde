@@ -14,7 +14,7 @@ class Object{
     boolean active = false;
   }
 
-  Object(float l, float x) {
+  Object(int l, float x) {
     side = l;
     X1 = x;
     Y1 = -side;

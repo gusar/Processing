@@ -1,3 +1,7 @@
+/*
+ * An implementation of a circular array queue.
+ */
+
 class Queue {
 
   int count;
@@ -16,23 +20,24 @@ class Queue {
     count = 0;
     front = 0;
     back = 0;
+    init_enemies();
   }
 
   void init_enemies() {
-    for(int i=0; i<array.length; i++){
-      proj[i] = new Projectile();
+    for(int i=0; i<array.length; i++) {
+      array[i] = new Square();
     }
   }
   
   void add() {
     count++;
     back = (front + count - 1) % array.length;
-    proj[back] = new Projectile();
+    array[back].active = true;
   }
 
-  void remove() {
+  void remove(int i) {
     count--;
-    proj[front] = new Projectile();
+    array[i] = new Square();
     front = (front + 1) % array.length;
   }
 }

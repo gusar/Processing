@@ -26,45 +26,37 @@ boolean inMenu = true;
 
 //-------------------- Load Objects --------------------
 Game_Menu menu = new Game_Menu();
-Level newLevel = new Level();
+Level level;
 Player P1;
-Projectile[] proj;
-Queue queue = new Queue();
+Queue queue;
 
 
 
 //----------------------- Draw -------------------------
 void draw(){
-  if(status == 0){
-    menu.draw_main_menu();
-  }
+   if(status == 0){
+      menu.draw_main_menu();
+   }
   
-  else if(status == 1){
-    // Initialize a level
-    if(inMenu){
-      newLevel.set_level();
+  // Initialize a level, player, objects
+   else if(status == 1){
+      if(inMenu){
+      level = new Level();
       P1 = new Player();
-      P1.init();
+      queue = new Queue(30);
       inMenu = false;
-      queue.init_enemies();
     }
     
-    // Update player position
-    P1.draw_player();
+   // Update player position
+   P1.draw();
     
-    if(tick){
+   if(tick){
       queue.add();
-    }
-    // Manage projectile behaviour
-    for(int i = 0; i<proj.length; i++){
-      
-      hit_detect(i);
-      enemy1(i);
-    }
-    tick_counter();
-    
-    
-    
+      tick = false;
+   }
+
+   move_objects();
+   tick_counter();  
   }
 }
 

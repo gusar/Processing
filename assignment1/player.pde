@@ -8,19 +8,19 @@ class Player{
     int side = 50;
     
   
-    Player(){
+    Player() {
       X1 = midX;
       Y1 = height - side;
       X2 = X1 + side;
       Y2 = Y1 + side;
     }
     
-    void draw(){
-      background(newLevel.level_color);
+    void draw() {
+      background(level.level_color);
       fill(0);
       
       // Restrict player position
-      if((speed<0 && X1<=0) || (speed>0 && X1>=(width-side))){
+      if((speed<0 && X1<=0) || (speed>0 && X1>=(width-side))) {
           speed = 0;
         }
         

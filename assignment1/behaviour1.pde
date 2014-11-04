@@ -2,25 +2,27 @@
 
 int counter = 0;
 boolean tick = true;
-  
-void enemy1(int n){
-  if(tick && counter == 0 && !proj[n].active){
-      proj[n].init(2, random(0,width-proj[n].side));
-      tick = false;
-  }
-  else if(proj[n].active){
-    proj[n].run();
-  }
-  if(proj[proj.length-1].active){
-    println("bam");
-    newLevel.init_enemies();
-  }
+
+void move_objects() {
+	for(int i = 0; i<queue.array.length; i++) {
+
+		//If 
+		hit_detect(i);
+		if(queue.array[i].Y1>height) {
+			queue.remove(i);
+			println("remove 1");
+		}	
+
+		else if(queue.array[i].active) {
+			queue.array[i].draw();
+		}
+	}
 } 
 
 void tick_counter(){   
-  counter++;
-  if(counter>60){
-    counter = 0;
-    tick = true;
-  }
+	counter++;
+	if(counter>60){
+   	counter = 0;
+   	tick = true;
+	}
 }

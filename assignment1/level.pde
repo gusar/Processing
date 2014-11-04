@@ -11,7 +11,8 @@ class Level{
 
   Level(){
     level_color = color_array[(int)random(0,5)];
-    background(level_color);s
-    proj = new Projectile[100];
-  }     
+    background(level_color);
+  }
+
+
 }
