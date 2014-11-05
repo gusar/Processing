@@ -7,6 +7,15 @@ class Button{
   float offset_height = button_height / 2;
   float bX;
   float bY;
+
+  color button_color;
+  color button_hover_color;
+  
+//---------------------------------- Set button colors -------------------------------
+  Button(color c1, color c2){
+    button_color = c1;
+    button_hover_color = c2;   
+  }
   
 //-------------------------------------- Draw Button --------------------------------
   void draw_button(float x, float y, String s){
@@ -19,25 +28,18 @@ class Button{
     
     /* Check for mouse hover */
     if(mouseX>bX && mouseX<bX+button_width && mouseY>bY && mouseY<bY+button_height){
-      fill(menu.button_hover_color);
+      fill(button_hover_color);
       if(mousePressed){
         status = 1;
       }
     }
     else{
-      fill(menu.button_color);
+      fill(button_color);
     }
     
     /* Draw main button */
     rect(bX, bY, button_width, button_height);
     fill(50);
     text(s, x, y+12);
-  }
-  
-  
-//---------------------------------- Set button colors -------------------------------
-  void set_button_color(color c1, color c2){
-    menu.button_color = c1;
-    menu.button_hover_color = c2;
   }
 }
