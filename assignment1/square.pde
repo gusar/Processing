@@ -1,24 +1,30 @@
+// Square class uses properties of Object to create a flying thing
 class Square extends Object {
 
-	Square() {
-		super(50, random(0,width-50));
-		speed = random(1,3);
-	}
-
-	Square(int l, float s, color c) {
+// --------------- Main square initialisation ----------------------
+	Square(int l, float s, int t) {
 		super(l, random(0,width-l));
 		speed = random(1,s);
-		ocolor = c;
+		type = t;
 	}
 
+// --------------- Draw object using a sprite ----------------------
 	void draw() { 
-		fill(ocolor);
-	    if(Y1 > height) {
-	    	speed = 0;
-	    }
+		// Check for out of bounds
+	   if(Y1 > height) {
+	   	speed = 0;
+	   }
 
-	    if(active) {  
-	    	rect(X1, Y1+=speed, side, side);
+	   if(active) {  
+	   	// Collectible
+	   	if(this.type == 2) {
+	    		// rect(X1, Y1+=speed, side, side);
+	    		image(collectible_sprite, X1, Y1+=speed);
+	    	}
+	    	// Enemy
+	    	else {
+	    		image(enemy_sprite, X1, Y1+=speed);
+	    	}
 	    	Y2 += speed;
 		}
 	}

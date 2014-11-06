@@ -7,13 +7,7 @@ class Object{
    float X2;
    float Y2;
    boolean active;
-   color ocolor;
-  
-   Object() {
-      side = 50;
-      speed = 0;
-      active = false;
-   }
+   int type;
 
    Object(int l, float x) {
       side = l;
