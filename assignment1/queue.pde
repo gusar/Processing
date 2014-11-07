@@ -12,11 +12,11 @@ class Queue {
 // ------------------ Variables to be passed on to objects ---------------
    int size;
    int side;
-   float speed;
+   float[] speed;
    int type;
 
 // ----------------------- Make a new queue -----------------------------
-   Queue(int s, int si, float sp, int t) {
+   Queue(int s, int si, float[] sp, int t) {
       size = s;
       side = si;
       speed = sp;

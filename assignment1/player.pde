@@ -17,6 +17,7 @@ class Player {
    float statX;
    float statY;
    int counter;
+   boolean speedup;
   
 // ------------------- Initialise a new player -----------------------
    Player() {
@@ -31,6 +32,7 @@ class Player {
       lives = 5;
       fuel = 50;
       score_acc = 0;
+      speedup = false;
    }
 
 // ----------------------- Draw player ---------------------------------
@@ -50,19 +52,23 @@ class Player {
    void pstats(String s) {
       if(hit) {
          if(s == "addScore") {
-            println(score_acc);
             charge.play();
             charge.rewind();
             score_acc++;
             score++;
             fuel += 3;
-            if(score_acc > 2) {
+
+            // add a life for each 4 points
+            if(score_acc > 4) {
                health.play();
                health.rewind();
                lives++;
                score_acc = 0;
+               speedup = true;
             }
          }
+
+         // If player collides with enemy
          else if(s == "deductLife") {
             bang.play();
             bang.rewind();
@@ -71,10 +77,9 @@ class Player {
       }
       hit = false;
 
+      // Gameover if lives are zero
       if(lives < 1) {
          status = 2;
-         ambient_level.pause();
-         ambient_level.rewind();
       }
    }
 
@@ -92,11 +97,10 @@ class Player {
       text("Fuel:   "+fuel, statX, statY+=22);
    }
 
+   // Decrement fuel until empty
    void fuel_counter() {
       if(fuel<1) {
          status = 2;
-         ambient_level.pause();
-         ambient_level.rewind();
       }
       if(counter<1){
          fuel--;

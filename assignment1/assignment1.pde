@@ -54,6 +54,8 @@ int exit_status;
 int temp_status;
 boolean inMenu = true;
 boolean hit = false;
+float[] minmax_e;
+float[] minmax_c;
 
 //-------------------- Load Objects --------------------
 Game_Menu menu = new Game_Menu();
@@ -76,12 +78,11 @@ void draw() {
    }
 
    // Draw menu
-   else if(status == 0) {
-      if(!inMenu) {
-         ambient_level.pause();
-         ambient_level.rewind();
-      }
+   else if(status == 0 || status == 3) {
+      play_music();
       inMenu = true;
+      minmax_e = new float[] {1,5};
+      minmax_c = new float[] {1,4};
       pause_status = 8;
       exit_status = 9;
       temp_status = 0;
@@ -90,18 +91,18 @@ void draw() {
 
    // Gameover
    else if(status == 2) {
+      play_music();
       draw_gameover();
    }
   
-  // Initialize a level, player, objects
+   // Initialize a level, player, objects
    else if(status == 1) {
       if(inMenu) {
-         ambient_menu.pause();
-         ambient_menu.rewind();
+         play_music();
          level = new Level();
          P1 = new Player();
-         enemy = new Queue(40, 50, random(2,5), 1);
-         collectible = new Queue(20, 20, random(2,4), 2);
+         enemy = new Queue(60, 50, minmax_e, 1);
+         collectible = new Queue(30, 20, minmax_c, 2);
          inMenu = false;
       }
     

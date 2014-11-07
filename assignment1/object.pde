@@ -1,13 +1,14 @@
+// ---------- Basis for Square class ---------------
 class Object{
   
    int side;
-   float speed;
    float X1;
    float Y1;
    float X2;
    float Y2;
-   boolean active;
    int type;
+   float speed;
+   boolean active;
 
    Object(int l, float x) {
       side = l;

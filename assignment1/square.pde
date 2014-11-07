@@ -2,10 +2,10 @@
 class Square extends Object {
 
 // --------------- Main square initialisation ----------------------
-	Square(int l, float s, int t) {
+	Square(int l, float[] speed, int type) {
 		super(l, random(0,width-l));
-		speed = random(1,s);
-		type = t;
+		this.speed = random(speed[0],speed[1]);
+		this.type = type;
 	}
 
 // --------------- Draw object using a sprite ----------------------
@@ -18,7 +18,6 @@ class Square extends Object {
 	   if(active) {  
 	   	// Collectible
 	   	if(this.type == 2) {
-	    		// rect(X1, Y1+=speed, side, side);
 	    		image(collectible_sprite, X1, Y1+=speed);
 	    	}
 	    	// Enemy

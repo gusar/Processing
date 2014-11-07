@@ -12,13 +12,12 @@ void quit_dialogue() {
 	}
 }
 
+void level_dialogue() {
+
+}
+
 // ---------------------- Game over screen --------------------------
 void draw_gameover() {
-	if(!ambient_gameover.isPlaying()) {
-      ambient_gameover.rewind();
-      ambient_gameover.play();
-   }
-
 	image(end_background,0,0);
 	textSize(80);
 	fill(200);
@@ -29,7 +28,5 @@ void draw_gameover() {
 
 	if(keyPressed && key == ' '){
 		status = 0;
-		ambient_gameover.pause();
-		ambient_gameover.rewind();
 	}
 }
